@@ -1,0 +1,102 @@
+diff --git a/index.js b/index.js
+new file mode 100644
+--- /dev/null
++++ b/index.js
+@@ -0,0 +1,7 @@
++const saudar = (nome) => {
++    return `Bem-vindo ao sistema, ${nome}!`;
++};
++
++console.log(saudar("Usuário"));
++
++
++diff --git a/package.json b/package.json
+new file mode 100644
+--- /dev/null
++++ b/package.json
+@@ -0,0 +1,8 @@
++{
++  "name": "lordy-bily",
++  "version": "1.0.0",
++  "main": "index.js",
++  "scripts": {
++    "start": "node index.js"
++  }
++}
++
++diff --git a/README.md b/README.md
+new file mode 100644
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,31 @@
++# Lordy.Bily
++
++Small Node.js script that prints a welcome message.
++
++Prerequisites
++- Install Node.js (https://nodejs.org/).
++
++Run locally
++```powershell
++cd "C:\\Users\\mathe\\OneDrive\\Documentos\\GitHub\\Lordy.Bily"
++node index.js
++```
++
++Or with npm (if you prefer):
++```powershell
++npm install
++npm start
++```
++
++Git
++- Install Git for Windows: https://git-scm.com/download/win
++- Commit and push the changes as usual:
++```powershell
++git add index.js package.json README.md .github/workflows/nodejs.yml
++git commit -m "Add project files and CI"
++git push
++```
++
++CI
++A GitHub Actions workflow runs `node index.js` on push and pull requests to validate the script runs.
++
++
++diff --git a/.github/workflows/nodejs.yml b/.github/workflows/nodejs.yml
+new file mode 100644
+--- /dev/null
++++ b/.github/workflows/nodejs.yml
+@@ -0,0 +1,22 @@
++name: Node.js CI
++
++on:
++  push:
++    branches: [ main ]
++  pull_request:
++    branches: [ main ]
++
++jobs:
++  build:
++    runs-on: ubuntu-latest
++
++    steps:
++    - uses: actions/checkout@v4
++    - uses: actions/setup-node@v4
++      with:
++        node-version: '18'
++    - name: Install dependencies
++      run: npm install
++    - name: Run script
++      run: node index.js
++
++diff --git a/java.Lordy b/java.Lordy
++deleted file mode 100644
++--- a/java.Lordy
+++++ /dev/null
++@@ -1,5 +0,0 @@
+-const saudar = (nome) => {
+-    return `Bem-vindo ao sistema, ${nome}!`;
+-};
+-
+-console.log(saudar("Usuário"));
+
+
