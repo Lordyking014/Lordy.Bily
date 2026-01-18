@@ -38,7 +38,7 @@ new file mode 100644
 +
 +Run locally
 +```powershell
-+cd "C:\\Users\\mathe\\OneDrive\\Documentos\\GitHub\\Lordy.Bily"
++cd "C:\\Users\\Lordy\\OneDrive\\Documentos\\GitHub\\Lordy.Bily"
 +node index.js
 +```
 +
