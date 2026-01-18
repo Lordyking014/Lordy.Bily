@@ -3,11 +3,11 @@ new file mode 100644
 --- /dev/null
 +++ b/index.js
 @@ -0,0 +1,7 @@
-+const saudar = (nome) => {
-+    return `Bem-vindo ao sistema, ${nome}!`;
++const saudar = (LORDY) => {
++    return `Bem-vindo ao sistema, ${LORDY}!`;
 +};
 +
-+console.log(saudar("Usuário"));
++console.log(saudar("LORDY"));
 +
 +
 +diff --git a/package.json b/package.json
@@ -94,7 +94,7 @@ new file mode 100644
 ++++ /dev/null
 +@@ -1,5 +0,0 @@
 -const saudar = (nome) => {
--    return `Bem-vindo ao sistema, ${nome}!`;
+-    return `Bem-vindo ao sistema, ${Lordy}!`;
 -};
 -
 -console.log(saudar("Usuário"));
