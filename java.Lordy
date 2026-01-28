@@ -1,5 +1,0 @@
-const saudar = (nome) => {
-    return `Bem-vindo ao sistema, ${ saudar}!`;
-};
-
-console.log(saudar("Usuário"));

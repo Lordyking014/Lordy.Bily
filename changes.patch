@@ -3,11 +3,19 @@ new file mode 100644
 --- /dev/null
 +++ b/index.js
 @@ -0,0 +1,7 @@
+<<<<<<< Updated upstream
 +const saudar = (LORDY) => {
 +    return `Bem-vindo ao sistema, ${LORDY}!`;
 +};
 +
 +console.log(saudar("LORDY"));
+=======
++const saudar = ("Lordy") => {
++    return `Bem-vindo ao sistema, ${Lordy}!`;
++};
++
++console.log(saudar("lordy"));
+>>>>>>> Stashed changes
 +
 +
 +diff --git a/package.json b/package.json
@@ -38,7 +46,11 @@ new file mode 100644
 +
 +Run locally
 +```powershell
+<<<<<<< Updated upstream
 +cd "C:\\Users\\Lordy\\OneDrive\\Documentos\\GitHub\\Lordy.Bily"
+=======
++cd "C:\\Users\\lordy\\OneDrive\\Documentos\\GitHub\\Lordy.Bily"
+>>>>>>> Stashed changes
 +node index.js
 +```
 +
@@ -97,6 +109,10 @@ new file mode 100644
 -    return `Bem-vindo ao sistema, ${Lordy}!`;
 -};
 -
--console.log(saudar("Usuário"));
+-console.log(saudar("Lordy"));
+("Olá Reino Bily!")
+:/
+
+
 
 

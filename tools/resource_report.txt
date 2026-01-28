@@ -1,0 +1,6 @@
+Resource check for http://localhost:8000/
+
+https://cdn.tailwindcss.com -> https://cdn.tailwindcss.com  status=200 info=1024
+https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Manrope:wght@300;400;600;700&display=swap -> https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Manrope:wght@300;400;600;700&display=swap  status=200 info=1024
+https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80 -> https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80  status=200 info=1024
+https://unpkg.com/lucide@latest -> https://unpkg.com/lucide@latest  status=200 info=1024

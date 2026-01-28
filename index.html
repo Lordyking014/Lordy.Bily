@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HÓRUS MKT | A Nova Era do Marketing</title>
+    <meta name="description" content="Hórus MKT - Agência de Marketing de Elite. Estratégia, Dados e Visão.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'], // Mais moderna e técnica
+                        display: ['Cinzel', 'serif'],
+                    },
+                    colors: {
+                        gold: {
+                            300: '#FDE68A',
+                            400: '#D4AF37', // Ouro Clássico
+                            500: '#B8860B', // Ouro Escuro
+                            glow: '#FFD700', // Brilho
+                        },
+                        obsidian: {
+                            800: '#121212',
+                            900: '#050505', // Preto quase absoluto
+                            950: '#000000',
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'luxury-mesh': "url('https://grainy-gradients.vercel.app/noise.svg'), radial-gradient(circle at 50% 0%, #1a1a1a 0%, #050505 100%)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base e Utilitários */
+        body {
+            background-color: #050505;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        /* Tipografia de Efeito */
+        .text-glow {
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Animações de Entrada */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glass Cards Refinados */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+        }
+
+        /* Botão Dourado Premium */
+        .btn-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+        .btn-gold:hover::before {
+            opacity: 1;
+        }
+
+        /* Efeito de Ruído no Fundo */
+        .bg-noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        /* Forçar compatibilidade de blur na navbar em browsers que exigem prefixo */
+        #navbar {
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold-500 selection:text-black">
+    
+    <!-- Textura de grão global -->
+    <div class="bg-noise"></div>
+
+    <!-- Navegação Flutuante -->
+    <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+        <div class="bg-obsidian-900/80 backdrop-blur-xl border border-white/10 rounded-full px-6 py-3 flex items-center gap-8 shadow-2xl transition-all duration-300" id="navbar">
+            <a href="#inicio" class="flex items-center gap-2 group">
+                <i data-lucide="eye" class="w-5 h-5 text-gold-400 group-hover:text-gold-300 transition-colors"></i>
+                <span class="font-display font-bold text-lg tracking-wider text-white">HÓRUS</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+                <a href="#metodo" class="hover:text-white transition-colors">MÉTODO</a>
+                <a href="#servicos" class="hover:text-white transition-colors">SOLUÇÕES</a>
+                <a href="#agencia" class="hover:text-white transition-colors">SOBRE</a>
+            </div>
+
+            <a href="#contacto" class="hidden md:flex bg-white/5 hover:bg-white/10 border border-white/5 px-5 py-2 rounded-full text-xs font-bold tracking-widest text-gold-400 transition-colors uppercase">
+                Falar Agora
+            </a>
+
+            <!-- Mobile Menu Btn -->
+            <button class="md:hidden text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-obsidian-950/95 backdrop-blur-md flex items-center justify-center">
+        <div class="flex flex-col items-center gap-8 text-xl font-display">
+            <a href="#inicio" class="text-white" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Início</a>
+            <a href="#metodo" class="text-white" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Método</a>
+            <a href="#servicos" class="text-white" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Serviços</a>
+            <a href="#contacto" class="text-gold-400" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contacto</a>
+            <button class="absolute top-10 right-10 text-white" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section: Impacto Total -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Glow Effects -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(212,175,55,0.08),transparent_70%)]"></div>
+
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+            <div class="reveal-up mb-6 flex justify-center">
+                <span class="px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/5 text-gold-400 text-xs font-bold tracking-[0.3em] uppercase backdrop-blur-sm">
+                    Estratégia · Inteligência · Domínio
+                </span>
+            </div>
+            
+            <h1 class="font-display text-6xl md:text-8xl lg:text-9xl font-bold text-white leading-[0.9] tracking-tight mb-8 reveal-up text-glow mix-blend-lighten">
+                VISÃO<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-b from-gold-300 to-gold-600">SUPREMA</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed reveal-up font-light">
+                Não jogamos o jogo do marketing tradicional. Nós reescrevemos as regras. Transforme a sua empresa numa <strong class="text-white font-semibold">autoridade intocável</strong>.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center reveal-up">
+                <a href="#contacto" class="btn-gold text-obsidian-900 font-bold px-10 py-4 rounded-lg tracking-widest text-sm uppercase transition-transform hover:scale-105 shadow-[0_0_30px_rgba(212,175,55,0.3)]">
+                    Iniciar Consultoria
+                </a>
+                <a href="#metodo" class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm uppercase tracking-widest font-semibold group">
+                    Descobrir Método <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Decorative Grid Lines -->
+        <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+        <div class="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-white/5 to-transparent"></div>
+        <div class="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-white/5 to-transparent"></div>
+    </section>
+
+    <!-- Stat/Method Strip -->
+    <section id="metodo" class="border-y border-white/5 bg-obsidian-900/50 backdrop-blur-sm relative z-20">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/5">
+                <div class="reveal-up">
+                    <p class="text-3xl md:text-4xl font-display font-bold text-white mb-1">360°</p>
+                    <p class="text-xs text-gold-500 uppercase tracking-widest">Análise Total</p>
+                </div>
+                <div class="reveal-up" style="transition-delay: 100ms">
+                    <p class="text-3xl md:text-4xl font-display font-bold text-white mb-1">ROI</p>
+                    <p class="text-xs text-gold-500 uppercase tracking-widest">Foco em Lucro</p>
+                </div>
+                <div class="reveal-up" style="transition-delay: 200ms">
+                    <p class="text-3xl md:text-4xl font-display font-bold text-white mb-1">24/7</p>
+                    <p class="text-xs text-gold-500 uppercase tracking-widest">Monitorização</p>
+                </div>
+                <div class="reveal-up" style="transition-delay: 300ms">
+                    <p class="text-3xl md:text-4xl font-display font-bold text-white mb-1">100%</p>
+                    <p class="text-xs text-gold-500 uppercase tracking-widest">Personalizado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services: Bento Grid Style -->
+    <section id="servicos" class="py-32 bg-obsidian-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-20 text-center max-w-3xl mx-auto reveal-up">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">O Arsenal <span class="text-gold-400">Hórus</span></h2>
+                <p class="text-slate-400">Ferramentas de precisão para escalar o seu negócio no ambiente digital.</p>
+            </div>
+
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+                
+                <!-- Card Grande: Tráfego -->
+                <div class="md:col-span-2 glass-card rounded-2xl p-8 relative overflow-hidden group reveal-up">
+                    <div class="absolute top-0 right-0 p-8 opacity-20 group-hover:opacity-40 transition-opacity">
+                        <i data-lucide="bar-chart-2" class="w-32 h-32 text-gold-500"></i>
+                    </div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div class="bg-gold-500/10 w-fit p-3 rounded-lg text-gold-400 mb-4">
+                            <i data-lucide="target" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-2xl font-bold text-white mb-2">Tráfego de Alta Performance</h3>
+                            <p class="text-slate-400 max-w-md">Gestão avançada de Google Ads, Meta Ads e LinkedIn Ads. Utilizamos algoritmos preditivos para garantir que cada euro investido retorna multiplicado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Vertical: Branding -->
+                <div class="md:row-span-2 glass-card rounded-2xl p-8 relative overflow-hidden group reveal-up">
+                    <div class="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-gold-900/20 to-transparent"></div>
+                    <div class="relative z-10 h-full flex flex-col">
+                        <div class="bg-white/5 w-fit p-3 rounded-lg text-white mb-6">
+                            <i data-lucide="crown" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-white mb-4">Branding & Autoridade</h3>
+                        <p class="text-slate-400 mb-8 flex-grow">A sua marca não deve apenas ser vista; deve ser reverenciada. Criamos identidades visuais e narrativas que posicionam a sua empresa no topo da hierarquia do mercado.</p>
+                        <ul class="space-y-3 text-sm text-slate-300">
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-400 rounded-full"></div> Identidade Visual</li>
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-400 rounded-full"></div> Tom de Voz</li>
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold-400 rounded-full"></div> Posicionamento</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card Pequeno: Growth -->
+                <div class="glass-card rounded-2xl p-8 relative overflow-hidden group reveal-up">
+                     <div class="bg-white/5 w-fit p-3 rounded-lg text-white mb-4">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">Growth Hacking</h3>
+                    <p class="text-slate-400 text-sm">Estratégias agressivas de crescimento rápido através de testes A/B contínuos e otimização de funil.</p>
+                </div>
+
+                <!-- Card Pequeno: Conteúdo -->
+                <div class="glass-card rounded-2xl p-8 relative overflow-hidden group reveal-up">
+                     <div class="bg-white/5 w-fit p-3 rounded-lg text-white mb-4">
+                        <i data-lucide="pen-tool" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">Content Strategy</h3>
+                    <p class="text-slate-400 text-sm">Produção de conteúdo estratégico que educa, engaja e converte seguidores em clientes fiéis.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section with Clean Typography -->
+    <section id="agencia" class="py-32 bg-obsidian-900 relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 reveal-up">
+                    <h2 class="font-display text-4xl text-white mb-8 leading-snug">
+                        "O olho que tudo vê,<br>
+                        <span class="text-gold-400">a estratégia que tudo vence.</span>"
+                    </h2>
+                    <div class="space-y-6 text-slate-400 font-light text-lg">
+                        <p>
+                            A Hórus MKT nasceu de uma necessidade de clareza no caos digital. Enquanto outras agências focam em métricas de vaidade (likes, views), nós focamos na única métrica que sustenta um negócio: <strong class="text-white">Lucro Líquido.</strong>
+                        </p>
+                        <p>
+                            A nossa equipa opera nas sombras para que a sua marca brilhe na luz. Somos estrategas, matemáticos e criativos unidos por um propósito.
+                        </p>
+                    </div>
+                    <div class="mt-10 pt-10 border-t border-white/5 flex gap-8">
+                        <div>
+                            <span class="block text-3xl font-bold text-white font-display">40%</span>
+                            <span class="text-xs uppercase tracking-widest text-slate-500">Crescimento Médio</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-bold text-white font-display">90+</span>
+                            <span class="text-xs uppercase tracking-widest text-slate-500">Parceiros Ativos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 relative reveal-up">
+                    <div class="aspect-[4/5] rounded-lg overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-900 via-transparent to-transparent z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Office Abstract" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition duration-700">
+                    </div>
+                    <!-- Decorative Element -->
+                    <div class="absolute -bottom-10 -left-10 w-40 h-40 border border-gold-500/30 rounded-full flex items-center justify-center bg-obsidian-900 z-20 backdrop-blur-md">
+                        <i data-lucide="eye" class="w-12 h-12 text-gold-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact: Dark & Minimal -->
+    <section id="contacto" class="py-32 relative overflow-hidden">
+        <!-- Background Glow -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gold-600/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-3xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-gold-400 text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Aplicação</span>
+                <h2 class="font-display text-5xl font-bold text-white mb-6">Solicite Acesso</h2>
+                <p class="text-slate-400">Trabalhamos com um número limitado de parceiros. Conte-nos sobre o seu projeto.</p>
+            </div>
+
+            <form class="space-y-6 reveal-up" onsubmit="event.preventDefault(); alert('Pedido de acesso recebido. Entraremos em contacto brevemente.');">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="group relative">
+                        <input type="text" required placeholder=" " class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white outline-none focus:border-gold-500/50 focus:bg-white/10 transition-all peer pt-6 pb-2">
+                        <label class="absolute text-slate-500 text-sm ml-4 -mt-10 peer-placeholder-shown:-mt-8 peer-placeholder-shown:text-base pointer-events-none transition-all peer-focus:-mt-10 peer-focus:text-xs peer-focus:text-gold-400">Nome / Empresa</label>
+                    </div>
+                    <div class="group relative">
+                        <input type="email" required placeholder=" " class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white outline-none focus:border-gold-500/50 focus:bg-white/10 transition-all peer pt-6 pb-2">
+                         <label class="absolute text-slate-500 text-sm ml-4 -mt-10 peer-placeholder-shown:-mt-8 peer-placeholder-shown:text-base pointer-events-none transition-all peer-focus:-mt-10 peer-focus:text-xs peer-focus:text-gold-400">Email Profissional</label>
+                    </div>
+                </div>
+                
+                <div class="group relative">
+                    <select class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white outline-none focus:border-gold-500/50 focus:bg-white/10 transition-all appearance-none cursor-pointer">
+                        <option class="bg-obsidian-900 text-slate-400" disabled selected>Orçamento Mensal Estimado</option>
+                        <option class="bg-obsidian-900">€1.000 - €3.000</option>
+                        <option class="bg-obsidian-900">€3.000 - €10.000</option>
+                        <option class="bg-obsidian-900">€10.000+</option>
+                    </select>
+                </div>
+
+                <div class="group relative">
+                    <textarea rows="4" placeholder=" " class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white outline-none focus:border-gold-500/50 focus:bg-white/10 transition-all peer pt-6 pb-2"></textarea>
+                    <label class="absolute text-slate-500 text-sm ml-4 -mt-28 peer-placeholder-shown:-mt-12 peer-placeholder-shown:text-base pointer-events-none transition-all peer-focus:-mt-28 peer-focus:text-xs peer-focus:text-gold-400">Detalhes do Desafio</label>
+                </div>
+
+                <button type="submit" class="w-full btn-gold text-obsidian-900 font-bold py-5 rounded-lg uppercase tracking-widest text-sm hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all">
+                    Enviar Solicitação
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Minimalista -->
+    <footer class="border-t border-white/5 bg-obsidian-950 py-12 text-center text-slate-500 text-xs tracking-widest uppercase">
+        <div class="flex justify-center items-center gap-2 mb-6 opacity-50">
+            <i data-lucide="eye" class="w-4 h-4"></i>
+            <span>Hórus MKT</span>
+        </div>
+        <p>&copy; 2026 Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // Intersection Observer para animações de "Reveal"
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+        // Efeito suave na Navbar ao fazer scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-obsidian-900/95', 'py-2', 'px-8');
+                nav.classList.remove('px-6', 'py-3');
+            } else {
+                nav.classList.remove('bg-obsidian-900/95', 'py-2', 'px-8');
+                nav.classList.add('px-6', 'py-3');
+            }
+        });
+    </script>
+</body>
+</html>
