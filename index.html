@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HÓRUS MKT | A Nova Era do Marketing</title>
+    <meta name="theme-color" content="#050505">
+    <meta property="og:title" content="HÓRUS MKT | A Nova Era do Marketing">
+    <meta property="og:description" content="Hórus MKT - Agência de Marketing de Elite. Estratégia, Dados e Visão.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="description" content="Hórus MKT - Agência de Marketing de Elite. Estratégia, Dados e Visão.">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Local Tailwind CSS (built) -->
+    <link rel="stylesheet" href="dist/styles.css">
+    <!-- Fallback favicon (inline) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23D4AF37'/%3E%3Cpath d='M12 7a5 5 0 100 10 5 5 0 000-10z' fill='%23050101' opacity='0.15'/%3E%3C/svg%3E">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -126,6 +133,15 @@
     </style>
 </head>
 <body class="antialiased selection:bg-gold-500 selection:text-black">
+    <a class="sr-only focus:not-sr-only absolute top-2 left-2 bg-white/5 text-white px-3 py-2 rounded" href="#main">Skip to content</a>
+    <noscript>
+        <style>
+            /* Minimal fallback for users without JS */
+            body { background-color: #050505; color: #e2e8f0; }
+            .reveal-up { opacity: 1 !important; transform: none !important; }
+        </style>
+        <div style="background:#111;color:#fff;padding:12px;text-align:center;">Este site funciona melhor com JavaScript ativado.</div>
+    </noscript>
     
     <!-- Textura de grão global -->
     <div class="bg-noise"></div>
@@ -149,14 +165,14 @@
             </a>
 
             <!-- Mobile Menu Btn -->
-            <button class="md:hidden text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+            <button id="mobile-menu-btn" aria-controls="mobile-menu" aria-expanded="false" class="md:hidden text-white">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
     </nav>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-obsidian-950/95 backdrop-blur-md flex items-center justify-center">
+    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-obsidian-950/95 backdrop-blur-md flex items-center justify-center" role="dialog" aria-modal="true">
         <div class="flex flex-col items-center gap-8 text-xl font-display">
             <a href="#inicio" class="text-white" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Início</a>
             <a href="#metodo" class="text-white" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Método</a>
@@ -350,20 +366,20 @@
                 <p class="text-slate-400">Trabalhamos com um número limitado de parceiros. Conte-nos sobre o seu projeto.</p>
             </div>
 
-            <form class="space-y-6 reveal-up" onsubmit="event.preventDefault(); alert('Pedido de acesso recebido. Entraremos em contacto brevemente.');">
+            <form id="contact-form" class="space-y-6 reveal-up" onsubmit="event.preventDefault(); alert('Pedido de acesso recebido. Entraremos em contacto brevemente.');" aria-label="Formulário de contacto">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="group relative">
-                        <input type="text" required placeholder=" " class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white outline-none focus:border-gold-500/50 focus:bg-white/10 transition-all peer pt-6 pb-2">
-                        <label class="absolute text-slate-500 text-sm ml-4 -mt-10 peer-placeholder-shown:-mt-8 peer-placeholder-shown:text-base pointer-events-none transition-all peer-focus:-mt-10 peer-focus:text-xs peer-focus:text-gold-400">Nome / Empresa</label>
+                        <input id="name-input" name="name" type="text" required placeholder=" " class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white outline-none focus:border-gold-500/50 focus:bg-white/10 transition-all peer pt-6 pb-2">
+                        <label for="name-input" class="absolute text-slate-500 text-sm ml-4 -mt-10 peer-placeholder-shown:-mt-8 peer-placeholder-shown:text-base pointer-events-none transition-all peer-focus:-mt-10 peer-focus:text-xs peer-focus:text-gold-400">Nome / Empresa</label>
                     </div>
                     <div class="group relative">
-                        <input type="email" required placeholder=" " class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white outline-none focus:border-gold-500/50 focus:bg-white/10 transition-all peer pt-6 pb-2">
-                         <label class="absolute text-slate-500 text-sm ml-4 -mt-10 peer-placeholder-shown:-mt-8 peer-placeholder-shown:text-base pointer-events-none transition-all peer-focus:-mt-10 peer-focus:text-xs peer-focus:text-gold-400">Email Profissional</label>
+                        <input id="email-input" name="email" type="email" required placeholder=" " class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white outline-none focus:border-gold-500/50 focus:bg-white/10 transition-all peer pt-6 pb-2">
+                         <label for="email-input" class="absolute text-slate-500 text-sm ml-4 -mt-10 peer-placeholder-shown:-mt-8 peer-placeholder-shown:text-base pointer-events-none transition-all peer-focus:-mt-10 peer-focus:text-xs peer-focus:text-gold-400">Email Profissional</label>
                     </div>
                 </div>
                 
                 <div class="group relative">
-                    <select class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white outline-none focus:border-gold-500/50 focus:bg-white/10 transition-all appearance-none cursor-pointer">
+                    <select id="budget-select" name="budget" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white outline-none focus:border-gold-500/50 focus:bg-white/10 transition-all appearance-none cursor-pointer">
                         <option class="bg-obsidian-900 text-slate-400" disabled selected>Orçamento Mensal Estimado</option>
                         <option class="bg-obsidian-900">€1.000 - €3.000</option>
                         <option class="bg-obsidian-900">€3.000 - €10.000</option>
@@ -372,8 +388,8 @@
                 </div>
 
                 <div class="group relative">
-                    <textarea rows="4" placeholder=" " class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white outline-none focus:border-gold-500/50 focus:bg-white/10 transition-all peer pt-6 pb-2"></textarea>
-                    <label class="absolute text-slate-500 text-sm ml-4 -mt-28 peer-placeholder-shown:-mt-12 peer-placeholder-shown:text-base pointer-events-none transition-all peer-focus:-mt-28 peer-focus:text-xs peer-focus:text-gold-400">Detalhes do Desafio</label>
+                    <textarea id="details-textarea" name="details" rows="4" placeholder=" " class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white outline-none focus:border-gold-500/50 focus:bg-white/10 transition-all peer pt-6 pb-2"></textarea>
+                    <label for="details-textarea" class="absolute text-slate-500 text-sm ml-4 -mt-28 peer-placeholder-shown:-mt-12 peer-placeholder-shown:text-base pointer-events-none transition-all peer-focus:-mt-28 peer-focus:text-xs peer-focus:text-gold-400">Detalhes do Desafio</label>
                 </div>
 
                 <button type="submit" class="w-full btn-gold text-obsidian-900 font-bold py-5 rounded-lg uppercase tracking-widest text-sm hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all">
@@ -425,6 +441,29 @@
                 nav.classList.add('px-6', 'py-3');
             }
         });
+
+        // Mobile menu button ARIA handling
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileBtn.setAttribute('aria-expanded', 'true');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+            // Close when clicking outside the menu content
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) {
+                    mobileMenu.classList.add('hidden');
+                    mobileBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
     </script>
 </body>
 </html>
