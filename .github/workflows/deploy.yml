@@ -4,6 +4,11 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -11,12 +16,20 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+      with:
+        persist-credentials: true
 
     - name: Prepare public directory
       run: |
         mkdir -p public
         cp -v index.html about.html contact.html styles.css script.js README.md public/ || true
         cp -rv assets public/ || true
+
+    - name: Debug: list public folder
+      run: |
+        echo "Contents of public:/"
+        ls -la public || true
+        find public -type f -maxdepth 3 -print || true
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
